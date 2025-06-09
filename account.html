@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Velvet Vogue</title>
+    <meta name="description" content="Manage your Velvet Vogue account, view orders, and access admin features.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h1>Velvet Vogue</h1>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link">Cart <span class="cart-count" id="cart-count">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account.html" class="nav-link active">Account</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>My Account</h1>
+                <p>Manage your profile and orders</p>
+            </div>
+        </section>
+
+        <!-- Account Content -->
+        <section class="account-section">
+            <div class="container">
+                <!-- Login/Register Forms (shown when not logged in) -->
+                <div class="auth-container" id="auth-container">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" data-tab="login">Login</button>
+                        <button class="auth-tab" data-tab="register">Register</button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <div class="auth-form" id="login-form">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to your account</p>
+                        
+                        <form id="login-form-element" novalidate>
+                            <div class="form-group">
+                                <label for="login-email">Email Address</label>
+                                <input type="email" id="login-email" name="email" required aria-describedby="login-email-error">
+                                <div class="error-message" id="login-email-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="login-password" name="password" required aria-describedby="login-password-error">
+                                    <button type="button" class="password-toggle" data-target="login-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="login-password-error"></div>
+                            </div>
+                            
+                            <div class="form-options">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="remember-me">
+                                    <span class="checkmark"></span>
+                                    Remember me
+                                </label>
+                                <a href="#" class="forgot-password">Forgot password?</a>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Sign In</button>
+                        </form>
+
+                        <div class="social-login">
+                            <p>Or sign in with:</p>
+                            <div class="social-buttons">
+                                <button class="btn btn-social google">
+                                    <i class="fab fa-google"></i>
+                                    Google
+                                </button>
+                                <button class="btn btn-social facebook">
+                                    <i class="fab fa-facebook"></i>
+                                    Facebook
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="auth-form" id="register-form" style="display: none;">
+                        <h2>Create Account</h2>
+                        <p>Join the Velvet Vogue community</p>
+                        
+                        <form id="register-form-element" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="register-firstname">First Name</label>
+                                    <input type="text" id="register-firstname" name="firstname" required aria-describedby="register-firstname-error">
+                                    <div class="error-message" id="register-firstname-error"></div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="register-lastname">Last Name</label>
+                                    <input type="text" id="register-lastname" name="lastname" required aria-describedby="register-lastname-error">
+                                    <div class="error-message" id="register-lastname-error"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-email">Email Address</label>
+                                <input type="email" id="register-email" name="email" required aria-describedby="register-email-error">
+                                <div class="error-message" id="register-email-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="register-password" name="password" required aria-describedby="register-password-error">
+                                    <button type="button" class="password-toggle" data-target="register-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="password-strength" id="password-strength"></div>
+                                <div class="error-message" id="register-password-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="register-confirm-password">Confirm Password</label>
+                                <div class="password-input">
+                                    <input type="password" id="register-confirm-password" name="confirm_password" required aria-describedby="register-confirm-password-error">
+                                    <button type="button" class="password-toggle" data-target="register-confirm-password">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="error-message" id="register-confirm-password-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terms-agreement" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter-signup">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for exclusive offers
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- User Dashboard (shown when logged in) -->
+                <div class="user-dashboard" id="user-dashboard" style="display: none;">
+                    <div class="dashboard-sidebar">
+                        <div class="user-info">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h3 id="user-name">John Doe</h3>
+                            <p id="user-email">john.doe@example.com</p>
+                        </div>
+                        
+                        <nav class="dashboard-nav">
+                            <a href="#" class="nav-item active" data-section="profile">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                            <a href="#" class="nav-item" data-section="orders">
+                                <i class="fas fa-shopping-bag"></i>
+                                Orders
+                            </a>
+                            <a href="#" class="nav-item" data-section="addresses">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Addresses
+                            </a>
+                            <a href="#" class="nav-item" data-section="wishlist">
+                                <i class="fas fa-heart"></i>
+                                Wishlist
+                            </a>
+                            <a href="#" class="nav-item" data-section="admin" id="admin-nav" style="display: none;">
+                                <i class="fas fa-cog"></i>
+                                Admin Panel
+                            </a>
+                            <a href="#" class="nav-item logout" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </nav>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <!-- Profile Section -->
+                        <div class="dashboard-section active" id="profile-section">
+                            <h2>Profile Information</h2>
+                            <form id="profile-form" class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-firstname">First Name</label>
+                                        <input type="text" id="profile-firstname" name="firstname" value="John">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-lastname">Last Name</label>
+                                        <input type="text" id="profile-lastname" name="lastname" value="Doe">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-email">Email Address</label>
+                                    <input type="email" id="profile-email" name="email" value="john.doe@example.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-phone">Phone Number</label>
+                                    <input type="tel" id="profile-phone" name="phone" value="+1 (555) 123-4567">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="profile-birthday">Birthday</label>
+                                    <input type="date" id="profile-birthday" name="birthday" value="1995-06-15">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                            </form>
+                        </div>
+
+                        <!-- Orders Section -->
+                        <div class="dashboard-section" id="orders-section">
+                            <h2>Order History</h2>
+                            <div class="orders-list">
+                                <div class="order-item">
+                                    <div class="order-header">
+                                        <div class="order-info">
+                                            <h3>Order #VV-2024-001</h3>
+                                            <p>Placed on March 15, 2024</p>
+                                        </div>
+                                        <div class="order-status">
+                                            <span class="status delivered">Delivered</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-items">
+                                        <div class="order-product">
+                                            <img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=60&h=60&fit=crop&crop=center" alt="Product" loading="lazy">
+                                            <div class="product-details">
+                                                <h4>Trendy Crop Top</h4>
+                                                <p>Size: M, Color: Purple</p>
+                                                <p>Qty: 1</p>
+                                            </div>
+                                            <div class="product-price">$29.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-total">
+                                        <strong>Total: $35.98</strong>
+                                    </div>
+                                    <div class="order-actions">
+                                        <button class="btn btn-secondary">View Details</button>
+                                        <button class="btn btn-secondary">Reorder</button>
+                                    </div>
+                                </div>
+
+                                <div class="order-item">
+                                    <div class="order-header">
+                                        <div class="order-info">
+                                            <h3>Order #VV-2024-002</h3>
+                                            <p>Placed on March 20, 2024</p>
+                                        </div>
+                                        <div class="order-status">
+                                            <span class="status processing">Processing</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-items">
+                                        <div class="order-product">
+                                            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=60&h=60&fit=crop&crop=center" alt="Product" loading="lazy">
+                                            <div class="product-details">
+                                                <h4>High-Waist Jeans</h4>
+                                                <p>Size: M, Color: Dark Blue</p>
+                                                <p>Qty: 1</p>
+                                            </div>
+                                            <div class="product-price">$59.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="order-total">
+                                        <strong>Total: $65.98</strong>
+                                    </div>
+                                    <div class="order-actions">
+                                        <button class="btn btn-secondary">View Details</button>
+                                        <button class="btn btn-secondary">Track Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Addresses Section -->
+                        <div class="dashboard-section" id="addresses-section">
+                            <h2>Saved Addresses</h2>
+                            <div class="addresses-list">
+                                <div class="address-item">
+                                    <div class="address-header">
+                                        <h3>Home Address</h3>
+                                        <span class="address-badge default">Default</span>
+                                    </div>
+                                    <div class="address-details">
+                                        <p>John Doe</p>
+                                        <p>123 Fashion Street</p>
+                                        <p>New York, NY 10001</p>
+                                        <p>United States</p>
+                                        <p>Phone: +1 (555) 123-4567</p>
+                                    </div>
+                                    <div class="address-actions">
+                                        <button class="btn btn-secondary">Edit</button>
+                                        <button class="btn btn-secondary">Delete</button>
+                                    </div>
+                                </div>
+
+                                <div class="address-item">
+                                    <div class="address-header">
+                                        <h3>Work Address</h3>
+                                    </div>
+                                    <div class="address-details">
+                                        <p>John Doe</p>
+                                        <p>456 Business Ave</p>
+                                        <p>New York, NY 10002</p>
+                                        <p>United States</p>
+                                        <p>Phone: +1 (555) 987-6543</p>
+                                    </div>
+                                    <div class="address-actions">
+                                        <button class="btn btn-secondary">Edit</button>
+                                        <button class="btn btn-secondary">Delete</button>
+                                        <button class="btn btn-secondary">Set as Default</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary" id="add-address-btn">Add New Address</button>
+                        </div>
+
+                        <!-- Wishlist Section -->
+                        <div class="dashboard-section" id="wishlist-section">
+                            <h2>My Wishlist</h2>
+                            <div class="wishlist-grid">
+                                <div class="wishlist-item">
+                                    <div class="product-image">
+                                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&h=200&fit=crop&crop=center" alt="Wishlist Item" loading="lazy">
+                                        <button class="remove-wishlist" aria-label="Remove from wishlist">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Summer Dress</h3>
+                                        <p class="product-price">$45.99</p>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+
+                                <div class="wishlist-item">
+                                    <div class="product-image">
+                                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=200&fit=crop&crop=center" alt="Wishlist Item" loading="lazy">
+                                        <button class="remove-wishlist" aria-label="Remove from wishlist">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="product-info">
+                                        <h3>Platform Sneakers</h3>
+                                        <p class="product-price">$89.99</p>
+                                        <button class="btn btn-primary">Add to Cart</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Admin Panel Section -->
+                        <div class="dashboard-section" id="admin-section">
+                            <h2>Admin Panel</h2>
+                            <div class="admin-tabs">
+                                <button class="admin-tab active" data-admin-tab="products">Products</button>
+                                <button class="admin-tab" data-admin-tab="orders">Orders</button>
+                                <button class="admin-tab" data-admin-tab="users">Users</button>
+                                <button class="admin-tab" data-admin-tab="analytics">Analytics</button>
+                            </div>
+
+                            <!-- Products Management -->
+                            <div class="admin-content active" id="admin-products">
+                                <div class="admin-header">
+                                    <h3>Product Management</h3>
+                                    <button class="btn btn-primary" id="add-product-btn">Add New Product</button>
+                                </div>
+                                
+                                <div class="admin-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Image</th>
+                                                <th>Name</th>
+                                                <th>Category</th>
+                                                <th>Price</th>
+                                                <th>Stock</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Example product row for PHP integration -->
+                                            <!-- <?php foreach ($admin_products as $product): ?> -->
+                                            <tr>
+                                                <td>#001</td>
+                                                <td>
+                                                    <img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=50&h=50&fit=crop&crop=center" alt="Product" class="admin-product-image" loading="lazy">
+                                                </td>
+                                                <td>Trendy Crop Top</td>
+                                                <td>Tops</td>
+                                                <td>$29.99</td>
+                                                <td>25</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>
+                                                    <button class="btn-icon edit" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn-icon delete" title="Delete">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <!-- <?php endforeach; ?> -->
+                                            
+                                            <tr>
+                                                <td>#002</td>
+                                                <td>
+                                                    <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=50&h=50&fit=crop&crop=center" alt="Product" class="admin-product-image" loading="lazy">
+                                                </td>
+                                                <td>High-Waist Jeans</td>
+                                                <td>Bottoms</td>
+                                                <td>$59.99</td>
+                                                <td>15</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>
+                                                    <button class="btn-icon edit" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn-icon delete" title="Delete">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Orders Management -->
+                            <div class="admin-content" id="admin-orders">
+                                <h3>Order Management</h3>
+                                <div class="admin-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Order ID</th>
+                                                <th>Customer</th>
+                                                <th>Date</th>
+                                                <th>Total</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#VV-2024-001</td>
+                                                <td>John Doe</td>
+                                                <td>2024-03-15</td>
+                                                <td>$35.98</td>
+                                                <td><span class="status-badge delivered">Delivered</span></td>
+                                                <td>
+                                                    <button class="btn-icon view" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn-icon edit" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#VV-2024-002</td>
+                                                <td>Jane Smith</td>
+                                                <td>2024-03-20</td>
+                                                <td>$65.98</td>
+                                                <td><span class="status-badge processing">Processing</span></td>
+                                                <td>
+                                                    <button class="btn-icon view" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn-icon edit" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Users Management -->
+                            <div class="admin-content" id="admin-users">
+                                <h3>User Management</h3>
+                                <div class="admin-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Role</th>
+                                                <th>Joined</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#001</td>
+                                                <td>John Doe</td>
+                                                <td>john.doe@example.com</td>
+                                                <td>Customer</td>
+                                                <td>2024-01-15</td>
+                                                <td><span class="status-badge active">Active</span></td>
+                                                <td>
+                                                    <button class="btn-icon view" title="View">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn-icon edit" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Analytics -->
+                            <div class="admin-content" id="admin-analytics">
+                                <h3>Analytics Dashboard</h3>
+                                <div class="analytics-grid">
+                                    <div class="analytics-card">
+                                        <h4>Total Sales</h4>
+                                        <p class="analytics-number">$12,345</p>
+                                        <span class="analytics-change positive">+15%</span>
+                                    </div>
+                                    <div class="analytics-card">
+                                        <h4>Orders</h4>
+                                        <p class="analytics-number">156</p>
+                                        <span class="analytics-change positive">+8%</span>
+                                    </div>
+                                    <div class="analytics-card">
+                                        <h4>Customers</h4>
+                                        <p class="analytics-number">89</p>
+                                        <span class="analytics-change positive">+12%</span>
+                                    </div>
+                                    <div class="analytics-card">
+                                        <h4>Products</h4>
+                                        <p class="analytics-number">24</p>
+                                        <span class="analytics-change neutral">0%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Velvet Vogue</h3>
+                    <p>Your destination for trendy fashion and modern style.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Velvet Vogue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

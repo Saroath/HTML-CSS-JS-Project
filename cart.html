@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Velvet Vogue</title>
+    <meta name="description" content="Review your selected items and proceed to checkout at Velvet Vogue.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h1>Velvet Vogue</h1>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link active">Cart <span class="cart-count" id="cart-count">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account.html" class="nav-link">Account</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Shopping Cart</h1>
+                <p>Review your items before checkout</p>
+            </div>
+        </section>
+
+        <!-- Cart Content -->
+        <section class="cart-section">
+            <div class="container">
+                <div class="cart-container">
+                    <!-- Cart Items -->
+                    <div class="cart-items" id="cart-items">
+                        <!-- Empty cart message -->
+                        <div class="empty-cart" id="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h2>Your cart is empty</h2>
+                            <p>Add some trendy items to get started!</p>
+                            <a href="products.html" class="btn btn-primary">Shop Now</a>
+                        </div>
+
+                        <!-- Cart items will be populated here -->
+                        <div class="cart-content" id="cart-content" style="display: none;">
+                            <div class="cart-header">
+                                <h2>Your Items</h2>
+                                <button class="btn btn-secondary" id="clear-cart">Clear Cart</button>
+                            </div>
+
+                            <div class="cart-list" id="cart-list">
+                                <!-- Example cart item structure for PHP integration -->
+                                <!-- <?php foreach ($cart_items as $item): ?> -->
+                                <div class="cart-item" data-product-id="1">
+                                    <div class="item-image">
+                                        <img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=100&h=100&fit=crop&crop=center" alt="Product Image" loading="lazy">
+                                    </div>
+                                    <div class="item-details">
+                                        <h3>Trendy Crop Top</h3>
+                                        <p class="item-description">Comfortable and stylish crop top</p>
+                                        <div class="item-options">
+                                            <span class="item-size">Size: M</span>
+                                            <span class="item-color">Color: Purple</span>
+                                        </div>
+                                    </div>
+                                    <div class="item-quantity">
+                                        <label for="quantity-1" class="sr-only">Quantity</label>
+                                        <button class="quantity-btn minus" data-product-id="1">-</button>
+                                        <input type="number" id="quantity-1" class="quantity-input" value="1" min="1" max="10" data-product-id="1">
+                                        <button class="quantity-btn plus" data-product-id="1">+</button>
+                                    </div>
+                                    <div class="item-price">
+                                        <span class="price">$29.99</span>
+                                    </div>
+                                    <div class="item-actions">
+                                        <button class="remove-item" data-product-id="1" aria-label="Remove item">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- <?php endforeach; ?> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <div class="cart-summary" id="cart-summary" style="display: none;">
+                        <div class="summary-card">
+                            <h3>Order Summary</h3>
+                            
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="shipping">$5.99</span>
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Tax:</span>
+                                <span id="tax">$0.00</span>
+                            </div>
+                            
+                            <div class="summary-row discount" id="discount-row" style="display: none;">
+                                <span>Discount:</span>
+                                <span id="discount">-$0.00</span>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="total">$0.00</span>
+                            </div>
+
+                            <!-- Promo Code -->
+                            <div class="promo-code">
+                                <h4>Promo Code</h4>
+                                <div class="promo-input">
+                                    <input type="text" id="promo-code" placeholder="Enter promo code" aria-label="Promo code">
+                                    <button class="btn btn-secondary" id="apply-promo">Apply</button>
+                                </div>
+                                <div class="promo-message" id="promo-message"></div>
+                            </div>
+
+                            <!-- Checkout Button -->
+                            <button class="btn btn-primary checkout-btn" id="checkout-btn">
+                                <i class="fas fa-lock"></i>
+                                Secure Checkout
+                            </button>
+
+                            <!-- Payment Methods -->
+                            <div class="payment-methods">
+                                <p>We accept:</p>
+                                <div class="payment-icons">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-amex"></i>
+                                    <i class="fab fa-cc-paypal"></i>
+                                    <i class="fab fa-apple-pay"></i>
+                                </div>
+                            </div>
+
+                            <!-- Security Badge -->
+                            <div class="security-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure SSL Encryption</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommended Products -->
+                <section class="recommended-products" id="recommended-products" style="display: none;">
+                    <h2>You might also like</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=200&h=200&fit=crop&crop=center" alt="Recommended Product" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h3>Stylish Accessory</h3>
+                                <p class="product-price">$19.99</p>
+                                <button class="btn btn-primary add-to-cart" data-product-id="rec1">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&h=200&fit=crop&crop=center" alt="Trending Product" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h3>Trending Item</h3>
+                                <p class="product-price">$34.99</p>
+                                <button class="btn btn-primary add-to-cart" data-product-id="rec2">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=200&h=200&fit=crop&crop=center" alt="Popular Product" loading="lazy">
+                            </div>
+                            <div class="product-info">
+                                <h3>Popular Choice</h3>
+                                <p class="product-price">$42.99</p>
+                                <button class="btn btn-primary add-to-cart" data-product-id="rec3">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Velvet Vogue</h3>
+                    <p>Your destination for trendy fashion and modern style.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Velvet Vogue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

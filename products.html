@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Velvet Vogue</title>
+    <meta name="description" content="Browse our complete collection of trendy fashion items at Velvet Vogue. Filter by category, size, and price to find your perfect style.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h1>Velvet Vogue</h1>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link active">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link">Cart <span class="cart-count" id="cart-count">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account.html" class="nav-link">Account</a>
+                    </li>
+                </ul>
+                
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Discover the latest trends in fashion</p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="tops">Tops</option>
+                            <option value="bottoms">Bottoms</option>
+                            <option value="dresses">Dresses</option>
+                            <option value="outerwear">Outerwear</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="gender-filter">Gender:</label>
+                        <select id="gender-filter" class="filter-select">
+                            <option value="">All</option>
+                            <option value="women">Women</option>
+                            <option value="men">Men</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="size-filter">Size:</label>
+                        <select id="size-filter" class="filter-select">
+                            <option value="">All Sizes</option>
+                            <option value="xs">XS</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                            <option value="xxl">XXL</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="price-filter">Price Range:</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="">All Prices</option>
+                            <option value="0-25">$0 - $25</option>
+                            <option value="25-50">$25 - $50</option>
+                            <option value="50-75">$50 - $75</option>
+                            <option value="75-100">$75 - $100</option>
+                            <option value="100+">$100+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="sort-filter">Sort By:</label>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="newest">Newest First</option>
+                            <option value="popular">Most Popular</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-secondary" id="clear-filters">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-header">
+                    <p class="results-count" id="results-count">Showing 12 of 24 products</p>
+                </div>
+                
+                <div class="product-grid" id="products-grid">
+                    <!-- Products will be loaded here via JavaScript/PHP -->
+                    <!-- Example product structure for PHP integration -->
+                    <!-- <?php foreach ($products as $product): ?> -->
+                    <div class="product-card" data-category="tops" data-gender="women" data-size="s,m,l" data-price="29.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=300&h=300&fit=crop&crop=center" alt="Trendy Crop Top" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="1">Quick View</button>
+                            </div>
+                            <div class="product-badge">New</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Trendy Crop Top</h3>
+                            <p class="product-description">Comfortable and stylish crop top perfect for casual wear</p>
+                            <div class="product-details">
+                                <span class="product-category">Tops</span>
+                                <span class="product-sizes">S, M, L</span>
+                            </div>
+                            <p class="product-price">$29.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #4B0082;" title="Purple"></span>
+                                <span class="color-option" style="background-color: #000;" title="Black"></span>
+                                <span class="color-option" style="background-color: #fff;" title="White"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="1">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="bottoms" data-gender="women" data-size="xs,s,m,l,xl" data-price="59.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=300&h=300&fit=crop&crop=center" alt="High-Waist Jeans" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="2">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>High-Waist Jeans</h3>
+                            <p class="product-description">Classic high-waist jeans with a modern fit</p>
+                            <div class="product-details">
+                                <span class="product-category">Bottoms</span>
+                                <span class="product-sizes">XS, S, M, L, XL</span>
+                            </div>
+                            <p class="product-price">$59.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #1e3a8a;" title="Dark Blue"></span>
+                                <span class="color-option" style="background-color: #000;" title="Black"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="2">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="dresses" data-gender="women" data-size="s,m,l" data-price="45.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=300&fit=crop&crop=center" alt="Summer Dress" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="3">Quick View</button>
+                            </div>
+                            <div class="product-badge sale">Sale</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Summer Dress</h3>
+                            <p class="product-description">Light and breezy summer dress for any occasion</p>
+                            <div class="product-details">
+                                <span class="product-category">Dresses</span>
+                                <span class="product-sizes">S, M, L</span>
+                            </div>
+                            <p class="product-price">$45.99 <span class="original-price">$55.99</span></p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #FFD700;" title="Gold"></span>
+                                <span class="color-option" style="background-color: #4B0082;" title="Purple"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="3">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="outerwear" data-gender="unisex" data-size="s,m,l,xl" data-price="79.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=300&fit=crop&crop=center" alt="Denim Jacket" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="4">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Denim Jacket</h3>
+                            <p class="product-description">Classic denim jacket with modern styling</p>
+                            <div class="product-details">
+                                <span class="product-category">Outerwear</span>
+                                <span class="product-sizes">S, M, L, XL</span>
+                            </div>
+                            <p class="product-price">$79.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #1e3a8a;" title="Denim Blue"></span>
+                                <span class="color-option" style="background-color: #000;" title="Black"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="4">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="shoes" data-gender="women" data-size="6,7,8,9,10" data-price="89.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=300&h=300&fit=crop&crop=center" alt="Platform Sneakers" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="5">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Platform Sneakers</h3>
+                            <p class="product-description">Comfortable platform sneakers with trendy design</p>
+                            <div class="product-details">
+                                <span class="product-category">Shoes</span>
+                                <span class="product-sizes">6, 7, 8, 9, 10</span>
+                            </div>
+                            <p class="product-price">$89.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #fff;" title="White"></span>
+                                <span class="color-option" style="background-color: #000;" title="Black"></span>
+                                <span class="color-option" style="background-color: #4B0082;" title="Purple"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="5">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="accessories" data-gender="women" data-size="onesize" data-price="39.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=300&fit=crop&crop=center" alt="Crossbody Bag" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="6">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Crossbody Bag</h3>
+                            <p class="product-description">Stylish crossbody bag perfect for everyday use</p>
+                            <div class="product-details">
+                                <span class="product-category">Accessories</span>
+                                <span class="product-sizes">One Size</span>
+                            </div>
+                            <p class="product-price">$39.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #000;" title="Black"></span>
+                                <span class="color-option" style="background-color: #8B4513;" title="Brown"></span>
+                                <span class="color-option" style="background-color: #4B0082;" title="Purple"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="6">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Additional products for demonstration -->
+                    <div class="product-card" data-category="tops" data-gender="men" data-size="m,l,xl" data-price="35.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=300&h=300&fit=crop&crop=center" alt="Casual Shirt" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="7">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Casual Shirt</h3>
+                            <p class="product-description">Comfortable casual shirt for everyday wear</p>
+                            <div class="product-details">
+                                <span class="product-category">Tops</span>
+                                <span class="product-sizes">M, L, XL</span>
+                            </div>
+                            <p class="product-price">$35.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #fff;" title="White"></span>
+                                <span class="color-option" style="background-color: #1e3a8a;" title="Blue"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="7">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card" data-category="bottoms" data-gender="men" data-size="m,l,xl,xxl" data-price="65.99">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=300&h=300&fit=crop&crop=center" alt="Chino Pants" loading="lazy">
+                            <div class="product-overlay">
+                                <button class="btn btn-secondary quick-view" data-product-id="8">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Chino Pants</h3>
+                            <p class="product-description">Classic chino pants with modern fit</p>
+                            <div class="product-details">
+                                <span class="product-category">Bottoms</span>
+                                <span class="product-sizes">M, L, XL, XXL</span>
+                            </div>
+                            <p class="product-price">$65.99</p>
+                            <div class="product-colors">
+                                <span class="color-option" style="background-color: #8B4513;" title="Khaki"></span>
+                                <span class="color-option" style="background-color: #000;" title="Black"></span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart" data-product-id="8">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn btn-secondary" id="prev-page" disabled>Previous</button>
+                    <span class="page-info">Page 1 of 3</span>
+                    <button class="btn btn-secondary" id="next-page">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Velvet Vogue</h3>
+                    <p>Your destination for trendy fashion and modern style.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Velvet Vogue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
